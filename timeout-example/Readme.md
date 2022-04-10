@@ -33,3 +33,19 @@ systemctl reload nginx
 ```sh
 echo "127.0.0.1 timeout-demo.com" >> /etc/hosts
 ```
+
+# 5. 테스트
+> linux time명령어로 응답시간을 측정할 수 있습니다.
+
+* normal api를 테스트합니다.
+```sh
+time curl timeout-demo.com/normal
+```
+
+* timeout api를 테스트합니다.
+  * 504 gateway-timeout이 발생합니다.
+```sh
+time curl timeout-demo.com/timeout
+```
+
+![504-error](imgs/timeout-error.png)
