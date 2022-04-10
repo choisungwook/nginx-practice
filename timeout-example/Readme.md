@@ -1,6 +1,6 @@
 # 1. 개요
 * nginx timeout 예제
-* nginx는 연결된 세션이 60초(default) 동안 아무런 통신을 하지 않는다면 연결은 종료
+* nginx는 연결된 세션이 60초(default) 동안 아무런 통신을 하지 않는다면 연결을 강제 종료
 
 # 2. 준비
 * nginx
