@@ -31,5 +31,5 @@ systemctl reload nginx
 
 * /etc/hosts파일에 도메인을 설정합니다.
 ```sh
-echo "timeout-demo.com" >> /etc/hosts
+echo "127.0.0.1 timeout-demo.com" >> /etc/hosts
 ```
