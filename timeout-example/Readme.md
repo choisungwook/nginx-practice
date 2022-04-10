@@ -28,3 +28,8 @@ docker kill timeoutapp
 cp ./nginx.conf /etc/nginx/nginx.conf
 systemctl reload nginx
 ```
+
+* /etc/hosts파일에 도메인을 설정합니다.
+```sh
+echo "timeout-demo.com" >> /etc/hosts
+```
