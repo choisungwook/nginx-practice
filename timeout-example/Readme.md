@@ -49,3 +49,21 @@ time curl timeout-demo.com/timeout
 ```
 
 ![504-error](imgs/timeout-error.png)
+
+# 6. 해결방법
+* 첫 번째, timeout 시간을 변경합니다. 하지만, 좋지 못한 해결방법입니다. 설정한 시간이 더 늘어나면 또 수정해야합니다.
+* 두 번째, 오래 걸리는 작업을 다른 곳에서 처리합니다. webapp은 요청을 받으면 60초 안에 응답을 리턴하고, 오래 걸리는 작업은 쓰레드, queue등을 이용하여 처리합니다. 해당 작업이 종료되면 클라이언트가 완료되었다는 메세지를 전달해야 합니다. 대표적으로 callback이 있습니다.
+
+```python
+def demo_background():
+    # 70초 sleep
+    time.sleep(70)
+
+    # callback
+    # requests.get(host)
+
+@app.get("/timeout")
+def timeout_api(background_tasks: BackgroundTasks):
+    background_tasks.add_task(demo_background)
+    return {"msg": "timeout"}
+```
