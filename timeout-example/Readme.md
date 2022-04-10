@@ -25,7 +25,7 @@ docker kill timeoutapp
 # 4. nginx 실행
 * nginx 설정파일을 복사하고 설정을 재로드합니다.
 ```sh
-cp ./nginx.conf /etc/nginx/nginx.conf
+cp ./nginx.conf /etc/nginx/conf.d/timeout_demo.conf
 systemctl reload nginx
 ```
 
